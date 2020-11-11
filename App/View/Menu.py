@@ -32,6 +32,6 @@ def mainMenu()->None:
     print("*******************************************")
     print("1- Crear estructura de datos")
     print("2- Cargar Datos")
-    print("2- Descubrir productoras de cine")
+    print("3- Cantidad de clusters de Viajes")
     print("0- Salir")
     print("*******************************************")

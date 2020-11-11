@@ -35,7 +35,8 @@ from DISClib.Algorithms.Graphs import dijsktra
 def initDataBase()->dict:
     dataBase = {
         'graph' : graph.newGraph('ADJ_LIST',True,14000,compareId),
-        'station' : map.newMap(878756,878777,'CHAINING',1.5,compareId)
+        'station' : map.newMap(878756,878777,'CHAINING',1.5,compareId),
+        'trips' : 0
     }
     return dataBase
 

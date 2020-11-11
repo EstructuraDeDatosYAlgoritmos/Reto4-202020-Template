@@ -22,30 +22,27 @@
  *
  * Dario Correal
  *
- """
-
-import config as cf
-from App import model
-import csv
-
-"""
-El controlador se encarga de mediar entre la vista y el modelo.
-Existen algunas operaciones en las que se necesita invocar
-el modelo varias veces o integrar varias de las respuestas
-del modelo en una sola respuesta.  Esta responsabilidad
-recae sobre el controlador.
 """
 
-# ___________________________________________________
-#  Inicializacion del catalogo
-# ___________________________________________________
+from DISClib.ADT.graph import numEdges
+from DISClib.ADT import graph
+from DISClib.ADT import map 
+from DISClib.ADT import list 
+from DISClib.DataStructures import listiterator 
+from DISClib.DataStructures import mapentry
+from DISClib.Algorithms.Graphs import scc
+from DISClib.Algorithms.Graphs import dijsktra 
 
+def numClusters(dataBase):
+    clusters = scc.KosarajuSCC(dataBase['graph'])
+    return scc.connectedComponents(clusters)
 
-# ___________________________________________________
-#  Funciones para la carga de datos y almacenamiento
-#  de datos en los modelos
-# ___________________________________________________
+def sameCluster(dataBase, station1, station2):
+    clusters = scc.KosarajuSCC(dataBase['graph'])
+    return scc.stronglyConnected(clusters, station1, station2)
 
-# ___________________________________________________
-#  Funciones para consultas
-# ___________________________________________________
+def numVertices(dataBase):
+    return graph.numVertices(dataBase['graph'])
+
+def numEdges(dataBase):
+    return graph.numEdges(dataBase['graph'])

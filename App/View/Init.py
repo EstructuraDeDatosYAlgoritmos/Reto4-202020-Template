@@ -27,10 +27,30 @@
 from DISClib.ADT import list as lt
 
 from App.Controller import DataBase
+from App.Controller import Funtions
 
 def ejecutarInitDataBase()->dict:
-    return DataBase.initDataBase()
+    result = DataBase.initDataBase()
+    print('Base de datos creada')
+    return result
 
 
 def ejecutarLoadData(dataBase)->bool:
-    return DataBase.loadData(dataBase)
+    result = DataBase.loadData(dataBase)
+    analysis = DataBase.analyze(dataBase)
+    print(f"Datos actualizados:\
+            \n\tViajes: {analysis['trips']}\
+            \n\tVértices: {analysis['vertices']}\
+            \n\tArcos: {analysis['edges']}\
+            \n\tClústers: {analysis['Clusters']}")
+    return result
+
+def ejecutarClustersViajes(dataBase)->None:
+    id1 = int(input('Ingrese la primera id: '))
+    id2 = int(input('Ingrese la segunda id: '))
+    analysis = Funtions.ClustersViajes(dataBase,id1,id2)
+    print(f"\n\tSe han encontrado {analysis['clusters']} Clústers")
+    if analysis['conected']:
+        print(f'\n\tlas estaciones {id1} y {id2} estan conectadas')
+    else:
+        print(f'\n\tlas estaciones {id1} y {id2} no estan conectadas')

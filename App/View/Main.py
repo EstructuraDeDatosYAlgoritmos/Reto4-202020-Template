@@ -28,7 +28,7 @@ import sys
 
 from App.View import Init
 from App.View import Menu
-from App.Controller import DataBase
+
 
 def main()->None:
     """
@@ -52,6 +52,8 @@ def main()->None:
             elif int(inputs[0]) == 2:  #opcion 2
                 dataReady = Init.ejecutarLoadData(dataBase)
             
+            elif int(inputs[0]) == 3:  #opcion 3
+               Init.ejecutarClustersViajes(dataBase)
                 
             elif int(inputs[0])==0: #opcion 0, salir
                 sys.exit(0)

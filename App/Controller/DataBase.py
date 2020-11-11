@@ -31,6 +31,7 @@ from DISClib.ADT import queue
 from App.Dev import Const
 from App.Model import Add
 from App.Model import Structure
+from App.Model import Analysis
 
 def initDataBase()->dict:
     return Structure.initDataBase()
@@ -61,4 +62,11 @@ def loadData(DataBase)->bool:
 
     return True
 
-
+def analyze(dataBase):
+    analysis = {
+        'trips' : dataBase['trips'],
+        'vertices' : Analysis.numVertices(dataBase),
+        'edges' : Analysis.numEdges(dataBase),
+        'Clusters' : Analysis.numClusters(dataBase)
+    }
+    return analysis

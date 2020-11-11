@@ -68,6 +68,7 @@ def updateRoute(trip:dict, DataBase:dict)->None:
     weight = edge.weight(edgeRoute)
     weight['time'] = aveTime(weight,tripTime)
     weight['users'] += 1 
+    DataBase['trips'] += 1
 
 def updateStation(trip:dict, DataBase:dict)->None:
     startId = int(trip["start station id"])

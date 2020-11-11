@@ -22,32 +22,13 @@
  *
  * Dario Correal
  *
- """
-
-
-import sys
-import config
-from App import controller
-from DISClib.ADT import stack
-import timeit
-assert config
-
-"""
-La vista se encarga de la interacción con el usuario.
-Presenta el menu de opciones  y  por cada seleccion
-hace la solicitud al controlador para ejecutar la
-operación seleccionada.
 """
 
-# ___________________________________________________
-#  Variables
-# ___________________________________________________
+from App.Model import Analysis
 
-
-# ___________________________________________________
-#  Menu principal
-# ___________________________________________________
-
-"""
-Menu principal
-"""
+def ClustersViajes(dataBase,id1,id2)->list:
+    respuesta = {
+        'clusters' : Analysis.numClusters(dataBase),
+        'conected' : Analysis.sameCluster(dataBase,id1,id2)
+    }
+    return respuesta
